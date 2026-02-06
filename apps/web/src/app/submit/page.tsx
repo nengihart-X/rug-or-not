@@ -82,7 +82,7 @@ export default function SubmitToken() {
                     address: address as `0x${string}`,
                 });
 
-                let activeClient: PublicClient = mainnetClient;
+                let activeClient: any = mainnetClient;
 
                 if (!bytecode || bytecode === '0x') {
                     setScanStatus("MAINNET EMPTY. SEARCHING BASE SEPOLIA...");
