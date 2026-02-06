@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Token {
+  id              String       @id // Contract address
+  name            String
+  symbol          String
+  iconUrl         String?
+  honeypotUrl     String?
+  riskScore       Int
+  aiSummary       String?      @default("Analysis pending...")
+  aiVerdict       String?      @default("Neutral")
+  isRug           Boolean?
+  stakingPool     Float        @default(0)
+  legitVotes      Float        @default(0)
+  rugVotes        Float        @default(0)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  predictions     Prediction[]
+}
+
+model Prediction {
+  id          String   @id @default(cuid())
+  userAddress String
+  token       Token    @relation(fields: [tokenId], references: [id])
+  tokenId     String
+  isLegit     Boolean
+  amount      Float
+  createdAt   DateTime @default(now())
+}
+
+model Leaderboard {
+  address       String @id
+  totalEarned   Float  @default(0)
+  correctVotes  Int    @default(0)
+  incorrectVotes Int   @default(0)
+}
