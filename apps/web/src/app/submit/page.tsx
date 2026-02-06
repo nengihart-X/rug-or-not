@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useRouter } from "next/navigation";
 
-import { isAddress, createPublicClient, http, parseAbi } from "viem";
+import { isAddress, createPublicClient, http, parseAbi, PublicClient } from "viem";
 import { base, baseSepolia } from "viem/chains";
 
 const ERC20_ABI = parseAbi([
@@ -82,7 +82,7 @@ export default function SubmitToken() {
                     address: address as `0x${string}`,
                 });
 
-                let activeClient = mainnetClient;
+                let activeClient: PublicClient = mainnetClient;
 
                 if (!bytecode || bytecode === '0x') {
                     setScanStatus("MAINNET EMPTY. SEARCHING BASE SEPOLIA...");
