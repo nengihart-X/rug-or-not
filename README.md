@@ -1,8 +1,8 @@
 # RugOrNot? 🕵️‍♂️ (Hackathon Project)
 
 **RugOrNot** is an AI-powered crypto security platform on the **Base** blockchain. It helps users analyze tokens, stake on their legitimacy using **$RUGNOT**, and earn rewards for correct predictions.
+<img width="1920" height="880" alt="image" src="https://github.com/user-attachments/assets/24903aed-e19d-4924-89c4-5b4258cad18e" />
 
-![RugOrNot Banner](https://via.placeholder.com/1200x400?text=RugOrNot+on+Base)
 
 ## 🏗 Project Structure
 
