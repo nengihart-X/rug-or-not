@@ -238,6 +238,12 @@ app.post("/api/resolve", async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Backend listening at http://localhost:${port}`);
-});
+// Export for Vercel Serverless
+export default app;
+
+// Only listen locally or if explicitly requested
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`Backend listening at http://localhost:${port}`);
+    });
+}
